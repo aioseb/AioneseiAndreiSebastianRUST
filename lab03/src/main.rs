@@ -40,22 +40,22 @@ fn test_exercise_2() {
 fn test_exercise_3() {
     match result_add(53, 11) {
         Ok(value) => println!("Ok add: {value}"),
-        Err(_) => println!("Error add"),
+        Err(error) => println!("Error: {error}"),
     }
 
     match result_mul(53, 11) {
         Ok(value) => println!("Ok mul: {value}"),
-        Err(_) => println!("Error mul"),
+        Err(error) => println!("Error: {error}"),
     }
 
     match result_add(2147483648, 2147483648) {
         Ok(value) => println!("Ok add: {value}"),
-        Err(_) => println!("Error add"),
+        Err(error) => println!("Error: {error}"),
     }
 
     match result_mul(2147483648, 2147483648) {
         Ok(value) => println!("Ok mul: {value}"),
-        Err(_) => println!("Error mul"),
+        Err(error) => println!("Error: {error}"),
     }
 }
 

@@ -2,17 +2,19 @@
 // Small application that randomly generates numbers
 // and tries to guess a target between 1 and 10
 use rand::Rng;
+use thiserror::Error;
 
+#[derive(Error, Debug)]
 enum GuessError {
+    #[error("The target is higher!")]
     Higher,
+
+    #[error("The target is lower!")]
     Lower,
 }
 
 fn print_error(error: GuessError) {
-    match error {
-        GuessError::Higher => println!("The target is higher!"),
-        GuessError::Lower => println!("The target is lower!"),
-    }
+    println!("Error: {error}")
 }
 
 // Generate a number between 1 and 10

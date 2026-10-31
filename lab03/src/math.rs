@@ -1,3 +1,5 @@
+use thiserror::Error;
+
 // Exercise 2
 pub fn panic_add(a: u32, b: u32) -> u32 {
     let a_u64: u64 = a as u64;
@@ -24,7 +26,9 @@ pub fn panic_mul(a: u32, b: u32) -> u32 {
 }
 
 // Exercise 3
+#[derive(Error, Debug)]
 pub enum MathError {
+    #[error("Arithmetic expression has overflowed!")]
     OverflowedResult,
 }
 

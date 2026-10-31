@@ -1,10 +1,21 @@
-// Exercise 4
+use thiserror::Error;
 
+// Exercise 4
+#[derive(Error, Debug)]
 pub enum CharError {
+    #[error("Character is not an ASCII character!")]
     Ascii,
+
+    #[error("Character is not a digit!")]
     Digit,
+
+    #[error("Character is not a hexdigit!")]
     Hex,
+
+    #[error("Character is not a letter!")]
     Letter,
+
+    #[error("Character is not a printable!")]
     Printable,
 }
 
@@ -55,11 +66,5 @@ pub fn char_to_number_hex(chr: char) -> Result<u8, CharError> {
 }
 
 pub fn print_error(error: CharError) {
-    match error {
-        CharError::Ascii => println!("Character is not an ASCII character!"),
-        CharError::Digit => println!("Character is not a digit!"),
-        CharError::Hex => println!("Character is not a hex digit!"),
-        CharError::Letter => println!("Character is not a letter!"),
-        CharError::Printable => println!("Character is not printable!"),
-    }
+    println!("Error: {error}")
 }
